@@ -2,6 +2,18 @@
   <head>
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
   <meta name="viewport" content="width=device-width">
+    <script>
+      setTimeout(function() {
+              location.href = "intent://move?dest=app_reservation#Intent;scheme=twayapp;action=android.intent.action.VIEW;category=android.intent.category.BROWSABLE;package=com.twayair.m.app;end;";
+         }, 1000);
+		 
+var iframe = document.createElement('iframe');
+iframe.style.visibility = 'hidden'; // 보이지 않는 iframe으로 스킴을 호출한다.
+iframe.src = '{커스텀 스킴 주소}';
+document.body.appendChild(iframe);
+document.body.removeChild(iframe); // back 호출시 캐싱될 수 있으므로 제거	
+    </script>
+    
   </head>
   <body>
     <h2>
