@@ -2,16 +2,33 @@
   <head>
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
   <meta name="viewport" content="width=device-width">
-    <script type="text/javascript">
-      setTimeout(function() {
-              location.href = "intent://move?dest=app_twayplus#Intent;scheme=twayapp;action=android.intent.action.VIEW;category=android.intent.category.BROWSABLE;package=com.twayair.m.app;end;";
-         }, 1000);		 
-    </script>    
+
   </head>
   <body>
     <h2>
 	<!-- 네이버 URL Scheme 연동 참고 -->
       	<!-- <a id="applink" href="intent://qmenu=voicerecg&version=1#Intent;scheme=naversearchapp;action=android.intent.action.VIEW;category=android.intent.category.BROWSABLE;package=com.nhn.android.search;end">음성인식실행</a> -->
+	    
+	    
+<script src="https://us-cdn-gpp.stg.mcsvc.samsung.com/lib/wallet-card.js" type="text/javascript"></script>
+<div id="TARGET_ID"></div>
+<script>
+	samsungWallet.addButton({
+		partnerCode: "4030093436155138240",
+		cardId: "3fre4kmmboq00",
+		cdata: "${CARD DATA as JWT}",
+		RDClickUrl:
+			"https://us-rd.mcsvc.samsung.com/statistics/click/addtowlt?ep=C50C3754FEB24833B30C10B275BB6AB8;cc=GC;ii=1287098641030840334;co=4030093436155138240;cp=1288017491089625089;si=24;pg=101212967375212546;pi=Aqz68EBXSx6Mv9jsaZxzaA;tp=4030093501522138240;li=0",
+		RDImpressionUrl:
+			"https://us-rd.mcsvc.samsung.com/statistics/impression/addtowlt?ep=C50C3754FEB24833B30C10B275BB6AB8;cc=GC;ii=1287098641030840334;co=4030093436155138240;cp=1288017491089625089;si=24;pg=101212967375212546;pi=Aqz68EBXSx6Mv9jsaZxzaA;tp=4030093501522138240;li=0",
+		targetId: "TARGET_ID",
+		buttonId: "BUTTON_ID",
+	});
+</script>
+
+	    	    
+	    
+	    
    </h2>
    <p>
      <i>Only works on android Live!</i>
