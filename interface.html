@@ -1,0 +1,28 @@
+<html>
+
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<meta name="viewport" content="width=device-width">
+
+</head>
+
+<body>
+	<h2>
+		<p>window android GAtest : <a href="#" onclick="interfaceTest(true)">클릭하세요</a></p>
+
+		<p>클릭 가능한 텍스트 예시: <a href="#" onclick="interfaceTest(false)">클릭하세요</a></p>
+		
+		<script>
+			function interfaceTest(isBaseType) {
+				if (isBaseType) {
+					window.android.GATest();
+				} else {
+					window.twaygascriptAndroid.GATest();
+				}				
+			}			
+		</script>
+
+	</h2>
+</body>
+
+</html>
