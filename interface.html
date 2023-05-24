@@ -13,11 +13,11 @@
 		<p>핸들링없고, 앱 코딩없는 경우 : <a href="#" onclick="interfaceTest2()">Uncaught TypeError action</a></p>
 		<script>
 			function interfaceTest() {
-				window.android.handleJavascriptInterface("openShareSns");
+				window.android.handleJavascriptInterface("openShareSns",null);
 			}
 			
 			function interfaceTest1() {
-				window.android.handleJavascriptInterface("openShareAction");
+				window.android.handleJavascriptInterface("openShareAction",null);
 			}
 			
 			function interfaceTest2() {
