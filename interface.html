@@ -8,19 +8,22 @@
 
 <body>
 	<h2>
-		<p>window android GAtest : <a href="#" onclick="interfaceTest(true)">클릭하세요</a></p>
-
-		<p>클릭 가능한 텍스트 예시: <a href="#" onclick="interfaceTest(false)">클릭하세요</a></p>
-		
+		<p>정상실행 앱 코딩된 경우 : <a href="#" onclick="interfaceTest()">openShareSns</a></p>
+		<p>정상실행 앱 코딩없는 경우 : <a href="#" onclick="interfaceTest1()">openShareAction</a></p>
+		<p>핸들링없고, 앱 코딩없는 경우 : <a href="#" onclick="interfaceTest2()">Uncaught TypeError action</a></p>
 		<script>
-			function interfaceTest(isBaseType) {
-				alert(isBaseType)
-				if (isBaseType) {
-					window.android.GATest("TEST String android");
-				} else {
-					window.twaygascriptAndroid.GATest("TEST String twaygascriptAndroid");
-				}				
-			}			
+			function interfaceTest() {
+				window.android.handleJavascriptInterface("openShareSns");
+			}
+			
+			function interfaceTest1() {
+				window.android.handleJavascriptInterface("openShareAction");
+			}
+			
+			function interfaceTest2() {
+				window.android.interfaceTest2("openShareAction");
+			}
+			
 		</script>
 
 	</h2>
