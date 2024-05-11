@@ -1,0 +1,181 @@
+
+<!doctype html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, viewport-fit=cover">
+    <title>LGENSOL</title>
+    <style>
+        * {margin:0; padding:0; box-sizing:border-box; letter-spacing:-0.5px;;}
+
+        html, body {width:100%; height:100%; overflow:hidden; }
+        body {font-size:16px; font-family:'Malgun Gothic', sans-serif; line-height:1.6;}
+        ul, ol, li {list-style:none;}
+        button {border:0;}
+
+        /* 타이틀 */
+        [class^="tit_"] {font-weight:400; }
+
+        /* 텍스트 */
+        [class^="txt_"] {font-weight:400; }
+        p[class^="txt_"] {display:block;}
+
+        /* 폰트 사이즈 */
+        [class*="s48"] {font-size:3.000em;}
+        [class*="s44"] {font-size:2.750em;}
+        [class*="s38"] {font-size:2.375em;}
+        [class*="s28"] {font-size:1.750em;}
+        [class*="s24"] {font-size:1.500em;}
+        [class*="s20"] {font-size:1.250em;}
+        [class*="s18"] {font-size:1.125em;}
+        [class*="s16"] {font-size:1.000em;}
+        [class*="s14"] {font-size:0.875em;}
+        [class*="s12"] {font-size:0.750em;}
+        [class*="s11"] {font-size:0.688em;}
+
+        /* font weight */
+        [class*="FB"] {font-weight:700;}
+        [class*="FM"] {font-weight:500;}
+
+        /* font color */
+        [class*="cBlue"] {color:#3F67F1;}
+
+        [class*="cBlack"] {color:#000;}
+        [class*="cBlack2"] {color:#121212;}
+
+        [class*="cDark"] {color:#333;}
+        [class*="cDGray"] {color:#4d4d4d;}
+        [class*="cGray"] {color:#666;}
+        [class*="cLGray"] {color:#808080;}
+        [class*="cGGray"] {color:#999;}
+
+        [class*="cWhite"] {color:#fff;}
+        [class*="cYellow"] {color:#ffbf00;}
+        [class*="cRed"] {color:#ff5452;}
+        [class*="cGreen"] {color:#00aab5;}
+
+        /* 버튼 */
+        [class^="btn_"] {text-align:center; border-radius:1px; line-height:1.5; transition-property:background-color; transition-duration:.2s; transition-timing-function:ease;}
+            [class^="btn_"] [class^="txt_"] {font-weight:700; }
+
+        /* 버튼 높이 */
+        [class*="h50"] {padding:13px 12px; height:50px; font-size:1em;}
+        [class*="h40"] {padding:8px 12px; height:40px;}
+        [class*="h32"] {padding:4px 10px; height:32px; line-height:1.3;}
+
+        /* BLUE 버튼 */
+        [class^="btn_blue"] {background-color:#1428A0;}
+            [class^="btn_blue"] [class^="txt_"] {color:#fff;}
+        [class^="btn_blue"]:hover {background-color:#3C89F9;}
+        [class^="btn_blue"]:disabled {background-color:#fcf0f0;}
+
+        /* gray line 버튼 */
+        [class^="btn_grayLine"] {border:1px solid #ccc; background-color:#fff;}
+            [class^="btn_grayLine"] [class^="txt_"] {color:#808080;}
+        [class^="btn_grayLine"]:hover {border-color:#b3b3b3;}
+        [class^="btn_grayLine"]:disabled {border-color:#d6d6d6; box-shadow:0 4px 8px 0 rgba(0,0,0,0.1);}
+            [class^="btn_grayLine"]:disabled [class^="txt_"] {color:#b3b3b3;}
+        [class^="btn_grayLine"].active {border-color:#3f67f1; background-color:rgba(63, 103, 241, 0.1);}
+            [class^="btn_grayLine"].active [class^="txt_"] {color:#3f67f1;}
+
+        /* 버튼 두개 정렬 */
+        .items_btn_double {display:flex; justify-content:space-between; overflow:hidden; width:100%;}
+            .items_btn_double .item_list {width:100%;}
+            .items_btn_double .item_list + .item_list {margin-left:8px;}
+                .item_list [class^="btn_"] {width:100%; border-radius:6px;}
+
+        [class^="pop_wrap"] {width:100vw; height:100vh;}
+            .pop_header {padding:0 0 30px; border-bottom:1px solid #1428a0;}
+                .pop_header .tit_s24cBlackFM {font-size:1.000em;}
+            .pop_footer {position:fixed; bottom:0; left:40px; width:calc(100% - 80px);}
+            .pop_footer {padding:15px 0 calc(constant(safe-area-inset-bottom) + 15px); padding:15px 0 calc(env(safe-area-inset-bottom) + 15px);}
+
+        .popup_power {height:100%; padding:40px;}
+            .popup_power .pop_header {position:relative; text-align:center; line-height:1.5;}
+            .popup_power .pop_content {overflow-x:hidden; overflow-y:auto; padding:35px 0 0; height:calc(100vh - 261px); text-align:left;}
+                .pop_content > p {padding-bottom:15px; font-size:1rem; color:#1428a0; font-weight:600;}
+                .popup_power .txt_s16cDark_msg {display:block; padding:0 20px;}
+                    .power_cont {margin-top:40px; padding:20px; }
+                        .power_cont .tit_s18cBlackFB {display:block;}
+                            .power_lists_w {margin-top:10px; border-top:1px solid #aaa;}
+                                .power_list {padding:15px 10px; border-bottom:1px solid #e6e6e6;}
+                                    .txtIcon_dot_s16cDark {display:block; position:relative; padding-left:19px;}
+                                        .txtIcon_dot_s16cDark:before {display:block; content:''; position:absolute; left:0; top:8px; overflow:hidden; width:6px; height:6px; border-radius:50%; background-color:#333;}
+
+        .access_w {padding:30px 20px; background:#f8faff;}
+            .aw_img {display:flex; padding-bottom:25px; border-bottom:1px dashed #e8edf1;}
+                .aw_img .icon_img {width:75px; height:75px; margin-right:20px; background:url('../images/icon_img.png') center no-repeat; background-size:100% auto;}
+                .aw_img p {padding-bottom:8px; font-size:0.875rem; color:#333; font-weight:600;}
+                .aw_img li {font-size:0.75rem; color:#333; line-height:1.4;}
+            .access_w > p {padding-top:15px; font-size:12px; color:#808080;}
+
+        @media screen and (min-width:768px) and (max-width:1440px) {
+            .aw_img {padding-bottom:40px;}
+                .aw_img .icon_img {width:100px; height:100px; margin-right:35px;}
+                .aw_img p {font-size:1.125rem;}
+                .aw_img li {font-size:1rem;}
+            .access_w > p {padding-top:30px; font-size:1rem;}
+        }
+
+
+    </style>
+    <script>
+        function exit(){
+            window.Android.finishApp();
+        }
+
+        function permissionCheck(){
+            window.Android.permissionCheck();
+        }
+    </script>
+</head>
+
+<body>
+<div id="wrap">
+    <!-- 모바일 접근권한 허용 팝업 -->
+    <div class="pop_wrap">
+        <div class="popup_power">
+            <article class="pop_inner">
+                <header class="pop_header">
+                    <h1 class="tit_s20cBlackFB">원활한 LGENSOL 이용을 위한 <br>접근 권한 안내</h1>
+                </header>
+                <div class="pop_content">
+                    <p>선택적 접근권한</p>
+                    <div class="access_w">
+                        <div class="aw_img">
+                            <i class="icon_img"></i>
+                            <div>
+                                <p>사진 및 미디어</p>
+                                <ul>
+                                    <li>・ 프로필 이미지 등록</li>
+                                    <li>・ 콘텐츠 등록</li>
+                                    <li>・ 게시글 작성 및 저장</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <p>※ 선택 접근권한은 동의 하지 않으셔도 서비스 이용이 가능하며, 동의 상태는 휴대폰 설정메뉴에서 언제든지 변경 할 수 있습니다.</p>
+                    </div>
+                </div>
+                <footer class="pop_footer">
+                    <ul class="items_btn_double">
+                        <!-- <li class="item_list">
+                            <button type="button" class="btn_grayLineh50" onclick="javascript:exit()">
+                                <span class="txt_s16">허용안함</span>
+                            </button>
+                        </li> -->
+                        <li class="item_list">
+                            <button type="button" class="btn_blueh50" onclick="javascript:permissionCheck()">
+                                <span class="txt_s16">허용</span>
+                            </button>
+                        </li>
+                    </ul>
+                </footer>
+            </article>
+        </div>
+        <i class="dim"></i>
+    </div>
+    <!--// 모바일 접근권한 허용 팝업 -->
+</div>
+</div>
+</body>
+</html>
